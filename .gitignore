@@ -1,0 +1,12 @@
+# .gitignore para Terraform
+
+# Arquivos de estado (CONTÊM SENHAS EM TEXTO PURO!)
+*.tfstate
+*.tfstate.backup
+
+# Pasta de plugins e módulos baixados
+.terraform/
+.terraform.lock.hcl
+
+# Arquivos de variáveis com segredos (se tiver criado algum)
+*.tfvars
