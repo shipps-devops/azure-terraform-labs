@@ -1,28 +1,36 @@
 # Azure Infrastructure Automation with Terraform
 
-Este repositório contém códigos de **Infraestrutura como Código (IaC)** para provisionamento automatizado de recursos no Microsoft Azure utilizando Terraform.
+This repository contains **Infrastructure as Code (IaC)** scripts for automated resource provisioning on Microsoft Azure using Terraform.
 
-O projeto demonstra boas práticas de segurança, modularização e gestão de recursos em nuvem.
+The project demonstrates cloud engineering best practices, focusing on security, modularization, and efficient resource management.
 
-## 🚀 Tecnologias Utilizadas
+## 🚀 Technologies
 * **Terraform** (HCL)
 * **Microsoft Azure** (Provider)
 * **Git** (Version Control)
 
-## 🛠️ Arquitetura e Recursos
-O código automatiza a criação dos seguintes recursos:
-* **Resource Groups:** Organização lógica dos recursos.
-* **Networking:** Criação de VNet, Subnets e Interfaces de Rede (NIC).
-* **Segurança:** Implementação de Network Security Groups (NSG) para controle de tráfego (Porta 22 SSH).
-* **Compute:** Provisionamento de Máquinas Virtuais Linux (Ubuntu Server) com IP Público Estático (SKU Standard).
-* **Gestão de Estado:** Tratamento de erros de cotas regionais (SkuNotAvailable) e adaptação de regiões (West US / East US 2).
+## 🛠️ Architecture & Features
+The code automates the deployment of the following resources:
+* **Resource Groups:** Logical organization of cloud resources.
+* **Networking:** setup of Virtual Networks (VNet), Subnets, and Network Interfaces (NIC).
+* **Security:** Implementation of Network Security Groups (NSG) for traffic control (allowing SSH on Port 22).
+* **Compute:** Provisioning of Linux Virtual Machines (Ubuntu Server) with **Static Public IPs** (Standard SKU) to comply with Azure's latest policies.
+* **Resilience:** Handling of regional quota errors (`SkuNotAvailable`) and multi-region adaptation strategies (West US / East US 2).
 
-## 🔒 Segurança
-* **Segredos:** Nenhuma senha ou credencial é armazenada no código (hardcoded).
-* **Input Seguro:** A senha de administrador é solicitada em tempo de execução e marcada como `sensitive`, não aparecendo nos logs do terminal.
-* **Git Ignore:** Arquivos de estado (`.tfstate`) e variáveis sensíveis são ignorados pelo controle de versão.
+## 🔒 Security Measures
+* **No Hardcoded Secrets:** Credentials are never stored in the source code.
+* **Secure Input:** The `admin_password` is requested at runtime and marked as `sensitive`, ensuring it is masked in CLI logs.
+* **Git Ignore:** State files (`.tfstate`) and sensitive variable files are strictly excluded from version control via `.gitignore`.
 
+## ⚙️ How to Run
 
-### Pré-requisitos
-* [Terraform](https://www.terraform.io/downloads) instalado.
-* [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) instalado e autenticado (`az login`).
+### Prerequisites
+* [Terraform](https://www.terraform.io/downloads) installed.
+* [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) installed and authenticated (`az login`).
+
+### Step-by-Step
+
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/shipps-devops/azure-terraform-labs.git](https://github.com/shipps-devops/azure-terraform-labs.git)
+   cd azure-terraform-labs
